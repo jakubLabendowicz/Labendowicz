@@ -1,0 +1,16 @@
+services: 
+  server:
+    restart: always
+    build:
+      context: server
+      target: development
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - react-express
+    expose: 
+      - 8080
+  
+networks:
+  react-express:
